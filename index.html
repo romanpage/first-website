@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My First Website</title>
 
-  <!-- Load D3 -->
+  <!-- Load D3.js from CDN -->
   https://cdn.jsdelivr.net/npm/d3@7script>
 </head>
 <body>
@@ -58,7 +60,7 @@
       .attr("height", d => y(0) - y(d.value))
       .attr("fill", "#2563eb");
 
-    // Labels
+    // Value labels
     svg
       .selectAll(".label")
       .data(data)
@@ -67,6 +69,8 @@
       .attr("x", d => x(d.name) + x.bandwidth() / 2)
       .attr("y", d => y(d.value) - 8)
       .attr("text-anchor", "middle")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 12)
       .text(d => d.value);
 
     // X axis
